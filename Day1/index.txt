@@ -1,0 +1,72 @@
+1. - Write a blog on Difference between HTTP1.1 vs HTTP2 
+Ans - HTTP/1.1 and HTTP/2 are both protocols used for transferring data over the web, but they have significant differences in how they operate and the features they offer. In this blog, we'll explore the key differences between HTTP/1.1 and HTTP/2.
+
+Protocol Development: HTTP/1.1 was standardized in 1999, while HTTP/2 was standardized in 2015. This means HTTP/2 benefits from more recent advancements in web technology and takes into account the needs of modern web applications.
+
+Multiplexing: One of the significant improvements in HTTP/2 is multiplexing, which allows multiple requests and responses to be sent and received simultaneously over a single TCP connection. This is in contrast to HTTP/1.1, where each request had to wait for the previous one to complete, leading to potential performance bottlenecks.
+
+Header Compression: HTTP/2 uses HPACK compression for header fields, reducing the overhead of sending headers with each request and response. In contrast, HTTP/1.1 does not have built-in header compression, leading to larger overhead and slower performance.
+
+Binary Protocol: HTTP/2 is a binary protocol, meaning that data is represented in a binary format rather than as plain text. This allows for more efficient parsing and reduced complexity compared to the textual nature of HTTP/1.1.
+
+Server Push: HTTP/2 supports server push, a feature that allows the server to push resources to the client before they are explicitly requested. This can improve the loading speed of web pages by reducing the number of round trips needed to fetch resources.
+
+Stream Prioritization: HTTP/2 allows for stream prioritization, where the client can indicate the priority of different resources. This allows for more efficient resource allocation and can improve the user experience, especially on high-latency networks.
+
+Security: While both HTTP/1.1 and HTTP/2 can be used over plain text or encrypted connections, HTTP/2 is designed with encryption (using TLS) in mind. This means that encrypted connections are more widely used in HTTP/2, improving overall security.
+
+Backward Compatibility: HTTP/2 is designed to be backward compatible with HTTP/1.1, meaning that it can be deployed incrementally without requiring all clients and servers to upgrade simultaneously. This allows for a smoother transition to the new protocol.
+
+In conclusion, HTTP/2 offers several improvements over HTTP/1.1, including multiplexing, header compression, server push, and stream prioritization. These features make HTTP/2 more efficient and better suited for modern web applications. However, both protocols are still widely used, and the choice between them depends on the specific requirements of the application and the infrastructure in use.
+
+
+2. - Write a blog about objects and its internal representation in Javascript
+
+Ans - In JavaScript, objects are a fundamental part of the language and are used to store collections of data and more complex entities. Understanding how objects are internally represented and how they behave is crucial for writing efficient and effective JavaScript code. In this blog post, we'll explore the internal representation of objects in JavaScript.
+
+Objects in JavaScript
+In JavaScript, objects are used to store collections of key-value pairs, where keys are strings (or symbols) and values can be any data type, including other objects, functions, arrays, and primitive values like strings, numbers, and booleans. Objects in JavaScript can also have methods, which are functions that are associated with the object.
+
+Internal Representation
+Internally, objects in JavaScript are typically implemented using a data structure called a "dictionary" or "hash map." This allows for efficient lookup and insertion of key-value pairs, as the keys are hashed to determine their storage location within the object.
+
+When you create an object in JavaScript using object literal syntax ({}) or the new Object() constructor, JavaScript creates a new object instance and assigns it a unique internal [[Prototype]] property. This [[Prototype]] property is a reference to another object (or null if there is no prototype), and it is used to implement prototypal inheritance in JavaScript.
+
+Properties and Methods
+In JavaScript, properties of an object can be accessed using dot notation (object.property) or bracket notation (object['property']). When you access a property of an object, JavaScript first checks if the property exists directly on the object. If it does not, JavaScript then checks the object's prototype chain (i.e., the [[Prototype]] chain) to see if the property exists on any of the object's prototype objects.
+
+Methods in JavaScript are simply properties that hold function values. When you call a method on an object, JavaScript looks up the method in the object's own properties and, if it's not found, looks up the method in the object's prototype chain.
+
+Example
+Here's an example to illustrate the internal representation of objects in JavaScript:
+
+// Creating an object
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    fullName: function() {
+        return this.firstName + ' ' + this.lastName;
+    }
+};
+
+// Accessing properties
+console.log(person.firstName); // Output: John
+console.log(person['lastName']); // Output: Doe
+
+// Calling a method
+console.log(person.fullName()); // Output: John Doe
+
+// Adding a new property
+person.age = 30;
+
+// Deleting a property
+delete person.lastName;
+
+// Changing a property value
+person.firstName = 'Jane';
+
+
+In this example, person is an object with three properties (firstName, lastName, and fullName) and one method (fullName). The object is internally represented using a dictionary-like data structure, and the [[Prototype]] property of person points to the Object.prototype object.
+
+Conclusion
+Understanding how objects are internally represented in JavaScript is essential for writing efficient and effective code. By understanding the prototype chain and how properties and methods are accessed and stored, you can leverage JavaScript's object-oriented features to build powerful and flexible applications.
